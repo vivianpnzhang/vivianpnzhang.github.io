@@ -17,22 +17,7 @@ const PROJECTS = [
     category: "Business",
     links: [],
   },
-  {
-    title: "Private Pilot Licence in 49.7 hours",
-    cover: "aug 2026",
-    blurb: "Earned through the Air Cadet Power Pilot Program at Eid Air Aviation College in Bromont, QC. First solo July 6, 2026; licensed in 49.7 hours.",
-    stack: ["Cessna 150", "Bromont, QC", "Air Cadets"],
-    category: "Aviation",
-    links: [],
-  },
-  {
-    title: "Glider Pilot Licence",
-    cover: "aug 2025",
-    blurb: "Earned through the Air Cadet Glider Pilot Program. I now fly the Schweizer 2-33A at Borden Cadet Flying Site. 16.5 glider hours logged.",
-    stack: ["Schweizer 2-33A", "Borden, ON", "Air Cadets"],
-    category: "Aviation",
-    links: [],
-  },
+  // ↓ To add a project: copy the block above (from { to },), paste it here, and change the words.
 ];
 
 // ---------------- (no need to edit below this line) ----------------
