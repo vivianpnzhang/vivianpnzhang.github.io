@@ -1,101 +1,225 @@
----
-layout: null
----
 <!DOCTYPE html>
-<!-- The blog list page. You don't need to edit this:
-     every post file in this folder shows up here by itself, newest first. -->
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Vivian Zhang</title>
-  <meta name="description" content="Notes on flying, business, and what I'm learning along the way." />
-  <link rel="canonical" href="https://vivianpnzhang.ca/blog/" />
+  <title>Vivian Zhang</title>
+  <meta name="description" content="Business student at Laurier and licensed pilot. Open to summer 2027 internships." />
+  <link rel="canonical" href="https://vivianpnzhang.ca/" />
   <meta name="theme-color" content="#0e1a2b" />
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+  <!-- Browser tab icon (✈) -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Link preview card (LinkedIn, iMessage, Discord, X, Slack...) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vivian Zhang" />
-  <meta property="og:title" content="Blog | Vivian Zhang" />
-  <meta property="og:description" content="Notes on flying, business, and what I'm learning along the way." />
-  <meta property="og:url" content="https://vivianpnzhang.ca/blog/" />
+  <meta property="og:title" content="Vivian Zhang" />
+  <meta property="og:description" content="Business student at Laurier and licensed pilot. Open to summer 2027 internships." />
+  <meta property="og:url" content="https://vivianpnzhang.ca" />
   <meta property="og:image" content="https://vivianpnzhang.ca/preview.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Vivian Zhang's boarding pass: business student at Laurier, glider and private pilot" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vivian Zhang" />
+  <meta name="twitter:description" content="Business student at Laurier and licensed pilot. Open to summer 2027 internships." />
   <meta name="twitter:image" content="https://vivianpnzhang.ca/preview.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
-  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="wrap">
 
+    <!-- ===================== HEADER ===================== -->
     <header class="nav">
-      <a class="nav-logo" href="../">vz<span>.</span></a>
+      <a class="nav-logo" href="./">vz<span>.</span></a>
       <div class="nav-right">
         <nav class="nav-links">
-          <a href="../">home</a>
-          <a href="../projects.html">projects</a>
-          <a href="../photos.html">photos</a>
-          <a href="./" class="active">blog</a>
+          <a href="./" class="active">home</a>
+          <a href="projects.html">projects</a>
+          <a href="photos.html">photos</a>
+          <a href="blog/">blog</a>
         </nav>
         <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark theme">☀</button>
       </div>
     </header>
 
     <main>
-      <section class="page-head">
-        <p class="kicker">notes</p>
-        <h1>Blog</h1>
-        <p class="lede">notes from the flight deck and the classroom.</p>
+      <!-- ===================== HERO ===================== -->
+      <section class="page-head prose">
+        <p class="kicker">business student · licensed pilot</p>
+        <h1>Vivian <em>Zhang</em><span class="name-plane" aria-hidden="true">✈</span></h1>
+
+        <p>
+          Hey, I'm Vivian. I'm a first-year Honours BBA student at
+          <a href="https://www.wlu.ca/" target="_blank" rel="noopener">Wilfrid Laurier University ↗</a>, from Toronto.
+          I finished high school in three years, so I got here a bit early.
+        </p>
+        <p>
+          I also love flying. I earned my Private Pilot Licence in August 2026 through the
+          Air Cadet Power Pilot program in 49.7 hours, and my Glider Licence the summer before.
+          On weekends, I'm a glider pilot and staff cadet at Borden Cadet Flying Site, where we
+          get about 90 cadets flying every weekend.
+        </p>
+        <p>
+          At Laurier, I'm a First Year Rep for the Laurier Asset Management Association and
+          Asian Students in Business. Before university I did a co-op at EATABLE Popcorn,
+          writing SOPs, building workflows and helping with accounting and business analysis.
+        </p>
+        <p><em>Fun fact:</em> I got my first pilot's licence before my driver's licence.</p>
+
+        <div class="mini-links">
+          <a class="pill solid" href="resume.pdf" target="_blank" rel="noopener">résumé ↗</a>
+          <a class="pill" href="mailto:vivianpnzhang@gmail.com">say hello ↗</a>
+        </div>
       </section>
 
-      <div class="filters-bar">
-        <div class="chips" id="chips">
-          <button class="chip active" data-tag="all">all</button>
-          <button class="chip" data-tag="aviation">aviation</button>
-          <button class="chip" data-tag="business">business</button>
-          <button class="chip" data-tag="learning">learning</button>
-          <button class="chip" data-tag="milestones">milestones</button>
-        </div>
-        <span class="count" id="count"></span>
+      <!-- Pixel pilot flying across (drawn by script.js) -->
+      <div class="sky" id="sky" aria-hidden="true">
+        <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+        <div class="plane" id="plane"><span class="trail"></span></div>
       </div>
 
-      {%- assign posts = site.pages | where_exp: "p", "p.path contains 'blog/'" | where_exp: "p", "p.date" | sort: "date" | reverse %}
-      <ul class="post-list" id="posts">
-        {%- for post in posts %}
-        {%- assign words = post.content | strip_html | number_of_words -%}
-        {%- assign minutes = words | plus: 199 | divided_by: 200 -%}
-        {%- if minutes < 1 -%}{%- assign minutes = 1 -%}{%- endif %}
-        <li class="post-item" data-tag="{{ post.tag | downcase | strip }}">
-          <a href="{{ post.url | split: '/' | last }}">
-            <p class="post-meta">
-              <span class="tag">{{ post.tag | downcase }}</span>
-              <span aria-hidden="true">·</span>
-              <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" | downcase }}</time>
-              <span aria-hidden="true">·</span>
-              {{ minutes }} min read
-            </p>
-            <h2>{{ post.title }}</h2>
-            <p class="post-preview">{{ post.preview }}</p>
-            <span class="post-read">read →</span>
-          </a>
+      <!-- ===================== BOARDING PASS ===================== -->
+      <p class="label">boarding pass</p>
+      <div class="pass">
+        <div class="pass-main">
+          <div class="pass-top"><span>Flight <b>VZ 2027</b></span><span>Class: Business</span></div>
+          <div class="route">
+            <div class="city">YKF<small>Wilfrid Laurier University</small></div>
+            <div class="path"></div>
+            <div class="city to">BAY<small>Finance &amp; asset management</small></div>
+          </div>
+          <div class="pass-fields">
+            <div class="field"><small>Passenger</small><span>Vivian Zhang</span></div>
+            <div class="field"><small>Program</small><span>BBA '30</span></div>
+            <div class="field"><small>Seat</small><span>1A</span></div>
+            <div class="field"><small>Flight hours</small><span>68.2 hrs</span></div>
+            <div class="field"><small>Aircraft</small><span>Cessna 150</span></div>
+            <div class="field"><small>Licence</small><span>PPL + GPL</span></div>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <div class="status"><i class="dot"></i>Open to summer 2027 internships</div>
+          <div class="barcode"></div>
+        </div>
+      </div>
+
+      <!-- ===================== EXPERIENCE ===================== -->
+      <!-- To add an entry: copy one whole <li> ... </li> block and change the words.
+           Add class="now" to the <li> to give it a glowing "current" dot. -->
+      <p class="label">experience</p>
+      <ol class="timeline">
+        <li class="now">
+          <span class="t-date">sept 2026 – now</span>
+          <h3>First Year Rep <span class="xp-org">· Laurier Asset Management Association</span></h3>
+          <p>Support Laurier students in exploring asset management through hands-on learning, competitions and industry mentorship</p>
         </li>
-        {%- endfor %}
+        <li class="now">
+          <span class="t-date">sept 2026 – now</span>
+          <h3>First Year Rep <span class="xp-org">· Asian Students in Business</span></h3>
+          <p>Helping students grow professionally, connect culturally and explore new opportunities through panels, workshops and networking events</p>
+        </li>
+        <li class="now">
+          <span class="t-date">aug 2025 – now</span>
+          <h3>Glider Pilot &amp; Staff Cadet <span class="xp-org">· Borden Cadet Flying Site</span></h3>
+          <p>Fly the Schweizer 2-33A and run weekend flight ops that put ~90 cadets in the air every weekend.</p>
+        </li>
+        <li class="now">
+          <span class="t-date">sept 2021 – now</span>
+          <h3>Warrant Officer <span class="xp-org">· 110 Blackhawk Squadron, Royal Canadian Air Cadets</span></h3>
+          <p>Supervise 30 instructors training 200+ cadets, and led the Rifle Drill Team to 2nd across the GTA.</p>
+        </li>
+        <li>
+          <span class="t-date">feb 2024 – june 2026</span>
+          <h3>CanSkate Assistant Coach <span class="xp-org">· Scarboro Figure Skating Club</span></h3>
+          <p>Coached young skaters across skill levels, 2+ sessions a week.</p>
+        </li>
+        <li>
+          <span class="t-date">2025 – 2026</span>
+          <h3>Outreach &amp; Business Team <span class="xp-org">· FTC Team 25049 BudjetTech</span></h3>
+          <p>Organized 90+ outreach events reaching 2,000+ students; helped the team reach the FIRST World Championship.</p>
+        </li>
+        <li>
+          <span class="t-date">sept 2025 – jan 2026</span>
+          <h3>Business Analysis &amp; Accounting Co-op <span class="xp-org">· EATABLE Popcorn</span></h3>
+          <p>Wrote the SOPs and built the Excel task tracker behind daily operations for a snack brand sold in 600+ retailers.</p>
+        </li>
+      </ol>
+
+      <!-- ===================== EDUCATION ===================== -->
+      <p class="label">education</p>
+      <ul class="rows plain">
+        <li><div><span class="row-title">Wilfrid Laurier University</span><span class="row-sub">Honours BBA · Lazaridis School of Business &amp; Economics</span></div><span class="row-meta">2026 – 2030</span></li>
+        <li><div><span class="row-title">Dr. Norman Bethune Collegiate Institute</span><span class="row-sub">OSSD · completed in 3 years</span></div><span class="row-meta">2023 – 2026</span></li>
       </ul>
-      <p class="gallery-empty" id="empty" hidden>no posts here yet. check back soon ✈</p>
+
+      <!-- ===================== FLIGHT LOG ===================== -->
+      <p class="label">flight log</p>
+      <div class="logbook">
+        <div class="stat"><b>68.2</b><small>total hours</small></div>
+        <div class="stat"><b>51.7</b><small>powered</small></div>
+        <div class="stat"><b>16.5</b><small>glider</small></div>
+        <div class="stat"><b>49.7</b><small>hrs to PPL</small></div>
+      </div>
+      <ul class="log-list">
+        <li><b>Private Pilot Licence (Aeroplane)</b> · Air Cadet Power Pilot Training Program at Eid Air Aviation College, Bromont, QC · first solo July 6, 2026 · licensed Aug 2026</li>
+        <li><b>Glider Pilot Licence</b> · Air Cadet Glider Pilot Training Program · Aug 2025</li>
+      </ul>
+
+      <!-- ===================== PROJECTS ===================== -->
+      <p class="label">projects</p>
+      <ul class="rows">
+        <li><a href="projects.html"><span class="row-title">Coca-Cola Canada Bottling consulting case (BU111)</span><span class="row-meta upcoming">upcoming · team presentation</span></a></li>      </ul>
+      <div class="mini-links"><a class="pill" href="projects.html">all projects →</a></div>
+
+      <!-- ===================== AWARDS & CERTIFICATIONS ===================== -->
+      <p class="label">awards</p>
+      <ul class="badges">
+        <li>Royal Canadian Legion Medal of Excellence</li>
+        <li>Air Cadet Service Medal</li>
+        <li>Best Dressed Cadet · 2025</li>
+        <li>Top Cadet Fundraiser · 2025</li>
+      </ul>
+
+      <p class="label">certifications</p>
+      <ul class="badges soft">
+        <li>Private Pilot Licence</li>
+        <li>Glider Pilot Licence</li>
+        <li>Transport Canada Category 1 Medical</li>
+        <li>National Lifeguard</li>
+        <li>Aquatic Fitness Instructor</li>
+        <li>Standard First Aid &amp; CPR-C</li>
+      </ul>
+
+      <p class="label">languages</p>
+      <ul class="badges lang">
+        <li>English <span>native</span></li>
+        <li>Cantonese <span>fluent</span></li>
+        <li>Mandarin <span>proficient</span></li>
+      </ul>
+
+      <!-- ===================== OFF THE CLOCK ===================== -->
+      <p class="label">off the clock</p>
+      <p class="off-the-clock">
+         i also love travelling, music, and spending time with my family and friends!
+        <a class="link" href="photos.html">see the photos →</a>
+      </p>
     </main>
 
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
       <div class="footer-row">
         <span class="footer-links">
           <a href="https://www.linkedin.com/in/vivian-pn-zhang/" target="_blank" rel="noopener">linkedin ↗</a>
           <a href="mailto:vivianpnzhang@gmail.com">email ↗</a>
-          <a href="../resume.pdf" target="_blank" rel="noopener">résumé ↗</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">résumé ↗</a>
         </span>
         <span>Toronto, Canada</span>
       </div>
@@ -104,28 +228,5 @@ layout: null
     </footer>
 
   </div>
-
-  <script>
-    // Tag filter buttons: show only the posts with the tag you click
-    const chips = document.querySelectorAll("#chips .chip");
-    const posts = document.querySelectorAll("#posts .post-item");
-    const count = document.getElementById("count");
-    const empty = document.getElementById("empty");
-
-    function show(tag) {
-      let shown = 0;
-      posts.forEach((p) => {
-        const match = tag === "all" || p.dataset.tag === tag;
-        p.hidden = !match;
-        if (match) shown++;
-      });
-      chips.forEach((c) => c.classList.toggle("active", c.dataset.tag === tag));
-      count.textContent = shown + (shown === 1 ? " post" : " posts");
-      empty.hidden = shown > 0;
-    }
-
-    chips.forEach((c) => c.addEventListener("click", () => show(c.dataset.tag)));
-    show("all");
-  </script>
 </body>
 </html>
