@@ -1,9 +1,13 @@
 // ================================================================
 //  YOUR PROJECTS — edit this list. Each { ... } block is one card.
 //  - cover: short word shown on the colored card top (or set image: "images/x.jpg")
-//  - category: used by the filter buttons at the top
+//  - category: "Business", "Aviation" or "Personal" (must match a filter below)
 //  - links: add as many as you like, or leave it as []
 // ================================================================
+
+// The filter buttons, in order. A filter with no projects yet shows "coming soon".
+const FILTERS = ["Business", "Aviation", "Personal"];
+
 const PROJECTS = [
   {
     title: "Coca-Cola Canada Bottling consulting case",
@@ -36,7 +40,7 @@ const grid = document.getElementById("grid");
 const chipsEl = document.getElementById("chips");
 const countEl = document.getElementById("count");
 
-const categories = ["All", ...new Set(PROJECTS.map((p) => p.category))];
+const categories = ["All", ...new Set([...FILTERS, ...PROJECTS.map((p) => p.category)])];
 let current = "All";
 
 function esc(s) {
@@ -52,6 +56,10 @@ function renderChips() {
 function renderCards() {
   const list = current === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === current);
   countEl.textContent = `${list.length} project${list.length === 1 ? "" : "s"}`;
+  if (!list.length) {
+    grid.innerHTML = '<p class="gallery-empty">coming soon ✈</p>';
+    return;
+  }
   grid.innerHTML = list
     .map(
       (p, i) => `
