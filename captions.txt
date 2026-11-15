@@ -1,0 +1,4 @@
+﻿# Captions for photos in this folder.
+# One line per photo: the photo's number, an equals sign, then your caption.
+# Lines starting with # are ignored. Example:
+# 1 = First solo at Bromont!
