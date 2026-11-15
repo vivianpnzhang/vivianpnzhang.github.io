@@ -34,7 +34,7 @@ function esc(s) {
 
 function renderChips() {
   chipsEl.innerHTML = categories
-    .map((c) => `<button class="chip${c === current ? " active" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`)
+    .map((c) => `<button class="chip${c === current ? " active" : ""}" data-cat="${esc(c)}">${esc(c.toLowerCase())}</button>`)
     .join("");
 }
 
