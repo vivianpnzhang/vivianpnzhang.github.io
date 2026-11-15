@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Off course | Vivian Zhang</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0e1a2b" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet" />
+  <!-- Paths start with "/" so this page works at any broken address -->
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="nav">
+      <a class="nav-logo" href="/">vz<span>.</span></a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/">home</a>
+          <a href="/projects.html">projects</a>
+          <a href="/photos.html">photos</a>
+        </nav>
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark theme">☀</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-head prose">
+        <p class="kicker">error 404</p>
+        <h1>Off <em>course</em></h1>
+        <p class="lede">This page doesn't exist, or it's diverted to another airport. Let's get you back on the runway.</p>
+        <div class="mini-links">
+          <a class="pill solid" href="/">return to base →</a>
+        </div>
+      </section>
+
+      <div class="sky" id="sky" aria-hidden="true">
+        <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+        <div class="plane" id="plane"><span class="trail"></span></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="runway" aria-hidden="true"></div>
+      <p class="copyright">© <span id="year">2026</span> Vivian Zhang</p>
+    </footer>
+
+  </div>
+</body>
+</html>
