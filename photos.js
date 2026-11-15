@@ -3,15 +3,15 @@
 //
 //  To add a photo:
 //    1. Name it with the next number: 1.jpg, 2.jpg, 3.jpg ...
-//    2. Drop it into the right folder: photos/business, photos/flying,
-//       photos/travel or photos/life
+//    2. Drop it into the right folder: photos/flying, photos/travel
+//       or photos/life
 //  The highest number shows first, so your newest photo is always at the top.
 //
 //  To caption it, open captions.txt in the same folder and add a line:
 //    3 = First solo at Bromont!
 // ================================================================
 
-const FOLDERS = ["business", "flying", "travel", "life"];
+const FOLDERS = ["flying", "travel", "life"];
 const EXTENSIONS = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG"];
 const MAX_GAP = 3;     // stop looking after this many missing numbers in a row
 const MAX_PHOTOS = 300;

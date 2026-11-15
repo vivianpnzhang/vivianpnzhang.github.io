@@ -95,7 +95,7 @@ a { color: var(--text); text-decoration: none; }
   font-size: clamp(2.7rem, 8.5vw, 3.7rem);
   font-weight: 350;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 .page-head h1 em { color: var(--accent); }
 .kicker {
@@ -279,6 +279,20 @@ a { color: var(--text); text-decoration: none; }
 .row-title { font-family: var(--serif); font-size: 20px; color: var(--text); transition: color 0.2s, padding 0.2s; }
 .row-meta { font-size: 13px; color: var(--muted); white-space: nowrap; }
 .rows a:hover .row-title { color: var(--accent); padding-left: 6px; }
+.rows.plain li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.rows.plain li:first-child { border-top: 1px solid var(--border); }
+.row-sub { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+.badges.lang li::before { content: ""; }
+.badges.lang li { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.badges.lang span { color: var(--muted); font-size: 13px; margin-left: 4px; }
+.copyright { margin: 18px 0 0; text-align: center; font-size: 13px; color: var(--muted); }
 .row-meta.upcoming {
   color: var(--accent-2);
   border: 1px solid var(--accent-2);
@@ -403,6 +417,7 @@ a { color: var(--text); text-decoration: none; }
   font-size: 26px;
   color: var(--text);
 }
+.card-cover { text-align: center; padding: 0 18px; line-height: 1.2; }
 .card-cover img { width: 100%; height: 100%; object-fit: cover; }
 .cover-0 { background: linear-gradient(135deg, #f2b5a5 0%, #6d7fb3 100%); }
 .cover-1 { background: linear-gradient(135deg, #a8cbe8 0%, #2b4a7a 100%); }
@@ -574,6 +589,7 @@ main { animation: fadeUp 0.5s ease both; }
   .nav-links { gap: 12px; font-size: 14px; }
   .page-head { padding-top: 48px; }
   .grid { grid-template-columns: 1fr; }
+  .card-cover { font-size: 22px; height: 120px; }
   .xp-item, .skills { grid-template-columns: 1fr; gap: 4px; }
   .logbook { grid-template-columns: repeat(2, 1fr); }
   .pass { grid-template-columns: 1fr; }
