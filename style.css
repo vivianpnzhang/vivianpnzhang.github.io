@@ -349,8 +349,8 @@ a { color: var(--text); text-decoration: none; }
 .badges.soft li { border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border)); background: color-mix(in srgb, var(--accent-2) 8%, transparent); }
 .badges.soft li::before { content: "✓ "; color: var(--accent-2); }
 
-.off-duty { font-family: var(--serif); font-size: 21px; line-height: 1.55; color: var(--text); }
-.off-duty .link { font-family: var(--sans); font-size: 15px; white-space: nowrap; margin-left: 4px; }
+.off-duty, .off-the-clock { font-family: var(--serif); font-size: 21px; line-height: 1.55; color: var(--text); }
+.off-duty .link, .off-the-clock .link { font-family: var(--sans); font-size: 15px; white-space: nowrap; margin-left: 4px; }
 
 /* ============ PHOTO TABS ============ */
 .tabs { display: flex; gap: 6px; margin-top: 34px; border-bottom: 1px solid var(--border); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
