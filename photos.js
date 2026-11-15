@@ -1,20 +1,21 @@
 // ================================================================
 //  PHOTOS PAGE: you don't need to edit this file.
 //
-//  To add a photo:
-//    1. Name it with the next number: 1.jpg, 2.jpg, 3.jpg ...
-//    2. Drop it into the right folder: photos/flying, photos/travel
-//       or photos/life
-//  The highest number shows first, so your newest photo is always at the top.
+//  To add a photo: upload it into the right folder:
+//    photos/flying, photos/travel or photos/life
+//  Any file name works. Photos show in file-name order
+//  (photo_001 first, then photo_002...), so rename them to change the order.
 //
 //  To caption it, open captions.txt in the same folder and add a line:
-//    3 = First solo at Bromont!
+//    photo_003.jpg = First solo at Bromont!
 // ================================================================
 
 const FOLDERS = ["flying", "travel", "life"];
+const IMAGE = /\.(jpe?g|png|webp|gif|avif)$/i;
 const EXTENSIONS = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG"];
-const MAX_GAP = 3;     // stop looking after this many missing numbers in a row
+const MAX_GAP = 3;     // (backup method) stop after this many missing numbers in a row
 const MAX_PHOTOS = 300;
+let listPromise = null;
 
 const galleryEl = document.getElementById("gallery");
 const emptyEl = document.getElementById("empty");
@@ -52,28 +53,52 @@ async function loadCaptions(folder) {
     if (!res.ok) return captions;
     const text = await res.text();
     text.split(/\r?\n/).forEach((line) => {
-      const m = line.match(/^\s*(\d+)\s*[=:|-]\s*(.+)$/);
-      if (m) captions[m[1]] = m[2].trim();
+      if (/^\s*#/.test(line)) return;
+      const m = line.match(/^\s*([^=]+?)\s*=\s*(.+)$/);
+      if (m) captions[m[1].toLowerCase()] = m[2].trim();
     });
   } catch (e) { /* no captions file: that's fine */ }
   return captions;
 }
 
+// A caption line can use the full name (photo_003.jpg), the name without
+// the ending (photo_003), or just the number (3).
+function captionFor(captions, url) {
+  const name = decodeURIComponent(url.split("/").pop()).toLowerCase();
+  const base = name.replace(/\.[^.]+$/, "");
+  const num = (base.match(/(\d+)\D*$/) || [])[1];
+  return captions[name] || captions[base] || (num && captions[String(+num)]) || "";
+}
+
+// GitHub writes photo-list.json with every photo it finds in the photos folders
+function loadList() {
+  if (!listPromise) {
+    listPromise = fetch("photo-list.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+  return listPromise;
+}
+
 async function loadFolder(folder) {
   if (cache[folder]) return cache[folder];
-  const [captions] = await Promise.all([loadCaptions(folder)]);
-  const photos = [];
-  let gap = 0;
-  for (let n = 1; n <= MAX_PHOTOS && gap < MAX_GAP; n++) {
-    const url = await findPhoto(folder, n);
-    if (url) {
-      photos.push({ n, url, caption: captions[n] || "" });
-      gap = 0;
-    } else {
-      gap++;
+  const [captions, list] = await Promise.all([loadCaptions(folder), loadList()]);
+  let urls = [];
+  if (Array.isArray(list)) {
+    urls = list
+      .map((p) => p.replace(/^\//, ""))
+      .filter((p) => p.startsWith(`photos/${folder}/`) && IMAGE.test(p))
+      .map((p) => encodeURI(p));
+  } else {
+    // Backup method (e.g. previewing on your computer): look for 1.jpg, 2.jpg ...
+    let gap = 0;
+    for (let n = 1; n <= MAX_PHOTOS && gap < MAX_GAP; n++) {
+      const url = await findPhoto(folder, n);
+      if (url) { urls.push(url); gap = 0; } else gap++;
     }
   }
-  photos.reverse(); // newest (highest number) first, like Instagram
+  urls.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+  const photos = urls.map((url) => ({ url, caption: captionFor(captions, url) }));
   cache[folder] = photos;
   return photos;
 }

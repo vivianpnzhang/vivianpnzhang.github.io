@@ -10,6 +10,7 @@ markdown: kramdown
 exclude:
   - GUIDE.md
   - blog/POST-TEMPLATE.md
+  - POST-TEMPLATE.md
 
 # Every Markdown file in the blog folder uses the blog post design
 defaults:
