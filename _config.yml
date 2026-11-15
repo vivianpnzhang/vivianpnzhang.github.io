@@ -1,0 +1,19 @@
+# ================================================================
+#  Settings GitHub uses to build your blog. You don't need to edit this.
+#  Your other pages (home, projects, photos) are left exactly as they are.
+# ================================================================
+
+title: Vivian Zhang
+markdown: kramdown
+
+# Files GitHub should NOT turn into pages on your website
+exclude:
+  - GUIDE.md
+  - blog/POST-TEMPLATE.md
+
+# Every Markdown file in the blog folder uses the blog post design
+defaults:
+  - scope:
+      path: "blog/*.md"
+    values:
+      layout: post
