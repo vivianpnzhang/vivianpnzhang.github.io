@@ -2,7 +2,10 @@
 //  YOUR PROJECTS — edit this list. Each { ... } block is one card.
 //  - cover: short word shown on the colored card top (or set image: "images/x.jpg")
 //  - category: "Business", "Aviation" or "Personal" (must match a filter below)
-//  - links: add as many as you like, or leave it as []
+//  - page: the page that opens when someone clicks anywhere on the card
+//          (leave it out if the card shouldn't open anything)
+//  - pageLabel: the small link text in the card's corner
+//  - links: extra outside links (only used on cards without a page), or []
 // ================================================================
 
 // The filter buttons, in order. A filter with no projects yet shows "coming soon".
@@ -15,6 +18,8 @@ const PROJECTS = [
     blurb: "BU111 consulting case: analyzing Coca-Cola Canada Bottling's business situation, writing an individual recommendation, and presenting it as a team.",
     stack: ["BU111", "Consulting case", "Team presentation"],
     category: "Business",
+    page: "coca-cola-case.html",
+    pageLabel: "preview",
     links: [],
   },
   {
@@ -23,7 +28,9 @@ const PROJECTS = [
     blurb: "Building flight hours toward a Commercial Pilot Licence, after earning my private pilot and glider licences through the Air Cadet program.",
     stack: ["PPL", "Glider licence", "Cessna 150"],
     category: "Aviation",
-    links: [{ label: "see my flight log", url: "flight-log.html" }],
+    page: "flight-log.html",
+    pageLabel: "see my flight log",
+    links: [],
   },
   // ↓ To add a project: copy the block above (from { to },), paste it here, and change the words.
 ];
@@ -56,7 +63,7 @@ function renderCards() {
   grid.innerHTML = list
     .map(
       (p, i) => `
-    <article class="card" style="animation-delay:${i * 60}ms">
+    <${p.page ? `a href="${esc(p.page)}"` : "article"} class="card${p.page ? " card-link" : ""}" style="animation-delay:${i * 60}ms">
       <div class="card-cover cover-${PROJECTS.indexOf(p) % 4}">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}">` : esc(p.cover || p.title)}</div>
       <div class="card-body">
         <h3>${esc(p.title)}</h3>
@@ -64,14 +71,14 @@ function renderCards() {
         <div class="stack">${p.stack.map(esc).join(" · ")}</div>
         <div class="card-foot">
           <span class="tag">${esc(p.category)}</span>
-          <span class="card-links">${(p.links || [])
-            .map((l) => /^https?:/.test(l.url)
-              ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`
-              : `<a href="${esc(l.url)}">${esc(l.label)} →</a>`)
-            .join("")}</span>
+          <span class="card-links">${p.page
+            ? `<span class="card-open">${esc(p.pageLabel || "open")} →</span>`
+            : (p.links || [])
+                .map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`)
+                .join("")}</span>
         </div>
       </div>
-    </article>`
+    </${p.page ? "a" : "article"}>`
     )
     .join("");
 }
