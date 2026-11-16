@@ -17,6 +17,14 @@ const PROJECTS = [
     category: "Business",
     links: [],
   },
+  {
+    title: "Working toward my Commercial Pilot Licence",
+    cover: "in progress · 51.7 / 200 hrs",
+    blurb: "Building flight hours toward a Commercial Pilot Licence, after earning my private pilot and glider licences through the Air Cadet program.",
+    stack: ["PPL", "Glider licence", "Cessna 150"],
+    category: "Aviation",
+    links: [{ label: "see my flight log", url: "flight-log.html" }],
+  },
   // ↓ To add a project: copy the block above (from { to },), paste it here, and change the words.
 ];
 
@@ -57,7 +65,9 @@ function renderCards() {
         <div class="card-foot">
           <span class="tag">${esc(p.category)}</span>
           <span class="card-links">${(p.links || [])
-            .map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`)
+            .map((l) => /^https?:/.test(l.url)
+              ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`
+              : `<a href="${esc(l.url)}">${esc(l.label)} →</a>`)
             .join("")}</span>
         </div>
       </div>
