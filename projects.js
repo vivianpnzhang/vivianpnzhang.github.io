@@ -1,17 +1,16 @@
-// ================================================================
-//  YOUR PROJECTS — edit this list. Each { ... } block is one card.
-//  - cover: short word shown on the colored card top (or set image: "images/x.jpg")
-//  - category: "Business", "Aviation" or "Personal" (must match a filter below)
-//  - page: the page that opens when someone clicks anywhere on the card
-//          (leave it out if the card shouldn't open anything)
-//  - pageLabel: the small link text in the card's corner
-//  - links: extra outside links (only used on cards without a page), or []
-// ================================================================
-
-// The filter buttons, in order. A filter with no projects yet shows "coming soon".
 const FILTERS = ["Business", "Aviation", "Personal"];
 
 const PROJECTS = [
+  {
+    title: "Native for Everyone: P&G case competition",
+    cover: "★ best speaker in our panel",
+    blurb: "My first case competition: a 45-minute, no-slides pitch to make Native the clean personal care brand the whole household chooses, with a $1M plan built around a Gen Z wellness community.",
+    stack: ["P&G × Native", "Case competition", "Verbal pitch"],
+    category: "Business",
+    page: "native-case.html",
+    pageLabel: "read the case",
+    links: [],
+  },
   {
     title: "Coca-Cola Canada Bottling consulting case",
     cover: "upcoming · team presentation",
@@ -30,6 +29,26 @@ const PROJECTS = [
     category: "Aviation",
     page: "flight-log.html",
     pageLabel: "see my flight log",
+    links: [],
+  },
+  {
+    title: "A long weekend of gliding (vlog)",
+    cover: "vlog · cfb trenton & mountain view",
+    blurb: "A vlog from a long weekend flying gliders with the Air Cadet gliding program at CFB Trenton and Mountain View.",
+    stack: ["Air Cadets", "Gliding", "YouTube"],
+    category: "Aviation",
+    page: "glider-vlog.html",
+    pageLabel: "watch the vlog",
+    links: [],
+  },
+  {
+    title: "Music",
+    cover: "piano · violin · clarinet · baritone · tuba",
+    blurb: "A few performances, and a bit about the five instruments I've been lucky enough to learn.",
+    stack: ["Piano", "Violin", "Clarinet", "Baritone", "Tuba"],
+    category: "Personal",
+    page: "music.html",
+    pageLabel: "listen",
     links: [],
   },
   // ↓ To add a project: copy the block above (from { to },), paste it here, and change the words.
@@ -93,3 +112,4 @@ chipsEl.addEventListener("click", (e) => {
 
 renderChips();
 renderCards();
+
