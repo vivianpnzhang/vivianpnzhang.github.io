@@ -456,6 +456,11 @@ a { color: var(--text); text-decoration: none; }
 .card-links { display: flex; gap: 14px; font-size: 13.5px; }
 .card-links a { color: var(--text); }
 .card-links a:hover { color: var(--accent); }
+.card-link { color: inherit; }
+.card-open { color: var(--text); transition: color 0.2s, transform 0.2s; display: inline-block; }
+.card-link:hover .card-open { color: var(--accent); transform: translateX(3px); }
+.card-link:hover h3 { color: var(--accent); }
+.card h3 { transition: color 0.2s; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
@@ -575,6 +580,14 @@ a { color: var(--text); text-decoration: none; }
 .goal-top b { color: var(--text); font-weight: 600; }
 .goal-bar { position: relative; height: 10px; border-radius: 999px; background: var(--border); overflow: hidden; }
 .goal-bar i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); transition: width 1.2s cubic-bezier(.2,.7,.2,1); }
+
+/* ============ "COMING SOON" PROJECT PAGE ============ */
+.soon { margin-top: 34px; padding: 22px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.soon p { margin: 16px 0 0; font-size: 16px; }
+.soon-board { display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: 2px dashed var(--border); }
+.soon-board span:first-child { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.soon-board b { font-family: var(--serif); font-weight: 400; font-size: 30px; color: var(--accent); letter-spacing: 0.02em; }
+.soon-plane { margin-left: auto; font-size: 22px; color: var(--accent-2); animation: takeoff 3.2s ease-in-out infinite; }
 
 /* ============ BLOG LIST ============ */
 .post-list { border-top: 1px solid var(--border); }
