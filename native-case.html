@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Native for Everyone: P&amp;G Case Competition | Vivian Zhang</title>
-  <meta name="description" content="P&amp;G sponsored case competition at Laurier: making Native the clean personal care brand for the whole household. Won Best Speaker in our panel." />
+  <meta name="description" content="P&amp;G sponsored case competition at Laurier: making Native the clean personal care brand for the whole household. Won Best Speaker." />
   <link rel="canonical" href="https://vivianpnzhang.ca/native-case.html" />
   <meta name="theme-color" content="#0e1a2b" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vivian Zhang" />
   <meta property="og:title" content="Native for Everyone: P&amp;G Case Competition | Vivian Zhang" />
-  <meta property="og:description" content="P&amp;G sponsored case competition at Laurier: making Native the clean personal care brand for the whole household. Won Best Speaker in our panel." />
+  <meta property="og:description" content="P&amp;G sponsored case competition at Laurier: making Native the clean personal care brand for the whole household. Won Best Speaker." />
   <meta property="og:url" content="https://vivianpnzhang.ca/native-case.html" />
   <meta property="og:image" content="https://vivianpnzhang.ca/preview.png" />
   <meta property="og:image:width" content="1200" />
@@ -24,6 +24,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+/* ============ CASE PAGES (award, budget bar, quotes, photo slots) ============ */
+.award {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+  padding: 18px 22px;
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, var(--border));
+  border-radius: 14px;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--gold) 14%, transparent), color-mix(in srgb, var(--accent) 8%, transparent));
+}
+.award-icon { font-size: 30px; color: var(--gold); line-height: 1; }
+.award small { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.award b { font-family: var(--serif); font-weight: 400; font-size: 26px; color: var(--text); line-height: 1.25; }
+.case-facts { margin-top: 18px; }
+.pull {
+  margin: 0 0 1.2em;
+  padding: 2px 0 2px 20px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.budget { display: flex; height: 12px; border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.budget i { display: block; }
+.budget-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; color: var(--muted); margin-bottom: 26px; }
+.budget-legend b { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 6px; vertical-align: 1px; }
+.photo-slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.photo-slot {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  border: 1.5px dashed var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+}
+.photo-slot span { font-style: normal; font-size: 20px; color: var(--accent-2); }
+.photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 640px) {
+  .award b { font-size: 21px; }
+  .photo-slots { grid-template-columns: 1fr; }
+}
+  </style>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -51,12 +105,15 @@
         <p class="lede">P&amp;G sponsored case competition at Wilfrid Laurier University · ACE × WILL × Native</p>
       </section>
 
-      <div class="award">
-        <span class="award-icon" aria-hidden="true">★</span>
-        <div><small>result</small><b>Won Best Speaker in our panel</b></div>
+      <div class="award" style="display:flex;align-items:center;gap:16px;margin-top:30px;padding:18px 22px;border:1px solid color-mix(in srgb, var(--gold) 55%, var(--border));border-radius:14px;background:linear-gradient(120deg, color-mix(in srgb, var(--gold) 14%, transparent), color-mix(in srgb, var(--accent) 8%, transparent));">
+        <span aria-hidden="true" style="font-size:30px;line-height:1;color:var(--gold);">★</span>
+        <div>
+          <span style="display:block;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);">result</span>
+          <span style="display:block;font-family:var(--serif);font-size:26px;line-height:1.25;color:var(--text);">Won Best Speaker</span>
+        </div>
       </div>
 
-      <div class="logbook case-facts">
+      <div class="logbook case-facts" style="margin-top:18px">
         <div class="stat"><b>45 min</b><small>to read &amp; prepare</small></div>
         <div class="stat"><b>10 + 5</b><small>min pitch + Q&amp;A</small></div>
         <div class="stat"><b>0</b><small>slides (verbal only)</small></div>
@@ -142,7 +199,7 @@
       <div class="prose">
         <p>This was my first ever case competition, and I honestly didn't know what to expect walking in. Forty-five minutes to read a case, build a strategy, and plan out a million dollars felt impossible at first, and the no-slides rule made it even scarier. There was nothing to hide behind, just us, our ideas, and the judge.</p>
         <p>What surprised me most was how fun it got once we found our story. The moment we connected the case to the packed gym we'd walked past that morning, everything clicked: the audience, the plan, the hook, the close. Presenting it felt less like reciting and more like talking to someone about an idea we really believed in.</p>
-        <p>Winning Best Speaker in our panel was such a happy surprise, and it meant a lot for a first try. I left with more confidence thinking on my feet, and I can't wait to do more of these.</p>
+        <p>Winning Best Speaker was such a happy surprise, and it meant a lot for a first try. I left with more confidence thinking on my feet, and I can't wait to do more of these.</p>
       </div>
 
       <!-- Photos: replace a placeholder with <div class="photo-slot"><img src="photos/native-1.jpg" alt="..."></div> -->
