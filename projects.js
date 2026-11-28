@@ -1,3 +1,4 @@
+
 const FILTERS = ["Business", "Aviation", "Personal"];
 
 const PROJECTS = [
@@ -30,7 +31,7 @@ const PROJECTS = [
     stack: ["PPL", "Glider licence", "Cessna 150"],
     category: "Aviation",
     page: "flight-log.html",
-    art: "cpl",
+    image: "cpl-cover.jpg",
     pageLabel: "see my flight log",
     links: [],
   },
@@ -41,7 +42,7 @@ const PROJECTS = [
     stack: ["Air Cadets", "Gliding", "YouTube"],
     category: "Aviation",
     page: "glider-vlog.html",
-    art: "glider",
+    image: "glider-cover.jpg",
     pageLabel: "watch the vlog",
     links: [],
   },
@@ -52,7 +53,7 @@ const PROJECTS = [
     stack: ["Piano", "Violin", "Clarinet", "Baritone", "Tuba"],
     category: "Personal",
     page: "music.html",
-    art: "music",
+    image: "music-cover.jpg",
     pageLabel: "listen",
     links: [],
   },
@@ -162,3 +163,4 @@ chipsEl.addEventListener("click", (e) => {
 
 renderChips();
 renderCards();
+
