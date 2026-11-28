@@ -3,12 +3,12 @@ const FILTERS = ["Business", "Aviation", "Personal"];
 const PROJECTS = [
   {
     title: "Native for Everyone: P&G case competition",
-    cover: "★ best speaker in our panel",
+    cover: "★ best speaker",
     blurb: "My first case competition: a 45-minute, no-slides pitch to make Native the clean personal care brand the whole household chooses, with a $1M plan built around a Gen Z wellness community.",
     stack: ["P&G × Native", "Case competition", "Verbal pitch"],
     category: "Business",
     page: "native-case.html",
-    art: "native",
+    image: "native-cover.jpg",
     pageLabel: "read the case",
     links: [],
   },
@@ -133,7 +133,7 @@ function renderCards() {
     .map(
       (p, i) => `
     <${p.page ? `a href="${esc(p.page)}"` : "article"} class="card${p.page ? " card-link" : ""}" style="animation-delay:${i * 60}ms">
-      <div class="card-cover cover-${PROJECTS.indexOf(p) % 4}"${p.art && COVERS[p.art] ? ' style="padding:0"' : ""}>${p.art && COVERS[p.art] ? COVERS[p.art] : p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}">` : esc(p.cover || p.title)}</div>
+      <div class="card-cover cover-${PROJECTS.indexOf(p) % 4}"${(p.art && COVERS[p.art]) || p.image ? ' style="padding:0"' : ""}>${p.art && COVERS[p.art] ? COVERS[p.art] : p.image ? `<img src="${esc(p.image)}" alt="" loading="lazy">` : esc(p.cover || p.title)}</div>
       <div class="card-body">
         <h3>${esc(p.title)}</h3>
         <p>${esc(p.blurb)}</p>
